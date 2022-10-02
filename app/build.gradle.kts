@@ -4,6 +4,7 @@ import java.io.FileInputStream
 plugins {
     id("com.android.application")
     kotlin("android")
+    id(Dependencies.BuildPlugins.androidJUnit5) version Versions.androidJUnit5
 }
 
 android {
@@ -17,6 +18,7 @@ android {
         versionName = ConfigData.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments["runnerBuilder"] = ConfigData.runnerBuilder
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -112,10 +114,24 @@ dependencies {
     implementation(Dependencies.Deps.lifecycleRuntimeKtx)
     implementation(Dependencies.Deps.activityCompose)
 
+    debugImplementation(Dependencies.Deps.uiTestTooling)
+    debugImplementation(Dependencies.Deps.uiTestManifest)
+
     testImplementation(Dependencies.Deps.jUnit)
+    testImplementation(Dependencies.Deps.jUnitJupiterApi)
+    testRuntimeOnly(Dependencies.Deps.jUnitJupiterEngine)
+    testImplementation(Dependencies.Deps.jUnitJupiterParams)
+    testRuntimeOnly(Dependencies.Deps.jUnitVintageEngine)
+    testImplementation(Dependencies.Deps.mockk)
+    testImplementation(Dependencies.Deps.mockkAndroid)
+    testImplementation(Dependencies.Deps.mockkAgent)
+
     androidTestImplementation(Dependencies.Deps.extJunit)
     androidTestImplementation(Dependencies.Deps.espressoCore)
     androidTestImplementation(Dependencies.Deps.uiTestJUnit)
-    debugImplementation(Dependencies.Deps.uiTestTooling)
-    debugImplementation(Dependencies.Deps.uiTestManifest)
+    androidTestImplementation(Dependencies.Deps.testRunner)
+    androidTestImplementation(Dependencies.Deps.jUnit5AndroidTestCore)
+    androidTestRuntimeOnly(Dependencies.Deps.jUnit5AndroidTestRunner)
+    androidTestImplementation(Dependencies.Deps.mockkAndroid)
+    androidTestImplementation(Dependencies.Deps.mockkAgent)
 }
