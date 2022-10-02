@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.7">
+      <module name="Clean_Architecture_-_Android_Compose.app" target="11" />
+      <module name="Clean_Architecture_-_Android_Compose.buildSrc" target="11" />
+      <module name="Clean_Architecture_-_Android_Compose.buildSrc.main" target="11" />
+      <module name="Clean_Architecture_-_Android_Compose.buildSrc.test" target="11" />
+      <module name="Clean_Architecture_-_Android_Compose.data" target="11" />
+      <module name="Clean_Architecture_-_Android_Compose.device" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
